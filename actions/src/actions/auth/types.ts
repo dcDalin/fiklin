@@ -5,28 +5,42 @@ export type MyMutationOutput = {
   message: string;
 };
 
-export type Mutation = {
-  SignUpUser?: Maybe<MyMutationOutput>;
-};
-
 export type SignUpUserOutput = {
-  token: string;
-  message: string;
+  status: string;
+  token?: Maybe<string>;
+  data?: Maybe<string>;
 };
 
 export type AuthEmailExistsOutput = {
-  email: string;
+  message: string;
+  data: boolean;
+};
+
+export type LoginOutput = {
+  data?: Maybe<string>;
+  status: string;
+  token?: Maybe<string>;
 };
 
 export type Query = {
   AuthEmailExists?: Maybe<AuthEmailExistsOutput>;
 };
 
+export type Mutation = {
+  AuthLoginUser?: Maybe<LoginOutput>;
+  AuthSignUpUser?: Maybe<SignUpUserOutput>;
+};
+
 export type AuthEmailExistsArgs = {
   _eq?: Maybe<string>;
 };
 
-export type SignUpUserArgs = {
+export type AuthLoginUserArgs = {
+  email: string;
+  password: string;
+};
+
+export type AuthSignUpUserArgs = {
   email: string;
   password: string;
   user_name: string;

@@ -5,7 +5,7 @@ import bcryptjs from 'bcryptjs';
 import env from '../../env';
 import { createuserJwtToken } from '../../utils/jwt.token';
 import signupValidate from './signup.validate';
-import { SignUpUserArgs } from './types';
+import { AuthSignUpUserArgs } from './types';
 
 // env
 const HASURA_API_ENDPOINT = env('HASURA_API_ENDPOINT');
@@ -15,11 +15,11 @@ const HASURA_OPERATION = `mutation AuthSignUpUser($email: String = "", $password
   insert_users_one(object: {email: $email, password: $password, user_name: $user_name}) {
     id
     user_name
-    email
+    email 
   }
 }`;
 
-const execute = async (variables: SignUpUserArgs) => {
+const execute = async (variables: AuthSignUpUserArgs) => {
   const fetchResponse = await nodeFetch(HASURA_API_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -39,7 +39,7 @@ const execute = async (variables: SignUpUserArgs) => {
 const signupAction = async (req: Request, res: Response) => {
   try {
     // get request input
-    const { user_name, email, password }: SignUpUserArgs = req.body.input;
+    const { user_name, email, password }: AuthSignUpUserArgs = req.body.input;
 
     // Validate user input
     const { valid, err } = signupValidate(user_name, email, password);
