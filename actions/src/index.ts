@@ -1,5 +1,9 @@
+import 'dotenv/config';
 import path from 'path';
 import express from 'express';
+import bodyParser from 'body-parser';
+
+import authRoutes from './routes/auth.routes';
 
 const PORT = process.env.PORT || 4000;
 
@@ -11,12 +15,12 @@ const PORT = process.env.PORT || 4000;
       path.join(__dirname, '../../client/build'),
     );
 
+    app.use(bodyParser.json());
+
     app.use(staticFiles);
 
     // tslint:disable-next-line: variable-name
-    app.get('/api/v1/test', (_req, res) => {
-      res.send('hello');
-    });
+    app.use('/api/auth', authRoutes);
 
     // all react routes
     app.use('/*', staticFiles);
