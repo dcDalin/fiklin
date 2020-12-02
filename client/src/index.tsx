@@ -5,6 +5,7 @@ import { ApolloProvider } from "@apollo/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import client from "./ApolloProvider";
+import "semantic-ui-css/semantic.min.css";
 import "./index.css";
 
 ReactDOM.render(
