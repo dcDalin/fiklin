@@ -9,7 +9,6 @@ import { AuthSignUpUserArgs } from './types';
 
 // env
 const HASURA_API_ENDPOINT = env('HASURA_API_ENDPOINT');
-const HASURA_GRAPHQL_ADMIN_SECRET = env('HASURA_GRAPHQL_ADMIN_SECRET');
 
 const HASURA_OPERATION = `mutation AuthSignUpUser($email: String = "", $password: String = "", $user_name: String = "") {
   insert_users_one(object: {email: $email, password: $password, user_name: $user_name}) {
@@ -22,9 +21,6 @@ const HASURA_OPERATION = `mutation AuthSignUpUser($email: String = "", $password
 const execute = async (variables: AuthSignUpUserArgs) => {
   const fetchResponse = await nodeFetch(HASURA_API_ENDPOINT, {
     method: 'POST',
-    headers: {
-      'X-Hasura-Admin-Secret': HASURA_GRAPHQL_ADMIN_SECRET,
-    },
     body: JSON.stringify({
       variables,
       query: HASURA_OPERATION,

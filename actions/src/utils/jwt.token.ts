@@ -19,6 +19,7 @@ export const createAnonymousJwtToken = () =>
       'x-hasura-allowed-roles': [anonymous],
       'x-hasura-default-role': anonymous,
     },
+    exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
   });
 
 export const createuserJwtToken = (userId: string) =>

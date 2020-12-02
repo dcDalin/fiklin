@@ -9,7 +9,6 @@ import { AuthLoginUserArgs, AuthEmailExistsArgs } from './types';
 
 // env
 const HASURA_API_ENDPOINT = env('HASURA_API_ENDPOINT');
-const HASURA_GRAPHQL_ADMIN_SECRET = env('HASURA_GRAPHQL_ADMIN_SECRET');
 
 const HASURA_OPERATION = `query AuthEmailExists($_eq: String = "") {
   users(where: {email: {_eq: $_eq}}) {
@@ -23,9 +22,6 @@ const HASURA_OPERATION = `query AuthEmailExists($_eq: String = "") {
 const execute = async (variables: AuthEmailExistsArgs) => {
   const fetchResponse = await nodeFetch(HASURA_API_ENDPOINT, {
     method: 'POST',
-    headers: {
-      'X-Hasura-Admin-Secret': HASURA_GRAPHQL_ADMIN_SECRET,
-    },
     body: JSON.stringify({
       variables,
       query: HASURA_OPERATION,

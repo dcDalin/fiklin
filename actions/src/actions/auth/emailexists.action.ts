@@ -22,6 +22,7 @@ const execute = async (variables: AuthEmailExistsArgs) => {
     }),
   });
   const data = await fetchResponse.json();
+
   return data;
 };
 
@@ -35,7 +36,10 @@ const emailExistsAction = async (req: Request, res: Response) => {
   // run some business logic
 
   // success
-  return res.json(data);
+  return res.json({
+    message: `Email ${data.users[0].email} exists`,
+    data: true,
+  });
 };
 
 export default emailExistsAction;
