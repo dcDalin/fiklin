@@ -6,21 +6,11 @@ import env from '../env';
 const JWT_SECRET = env('JWT_SECRET');
 const WEBSITE_URL = env('WEBSITE_URL');
 
-const anonymous = 'anonymous';
 const user = 'user';
 const publisher = 'publisher';
 const admin = 'admin';
 
 const createJwtToken = (body: any) => jwt.sign(body, JWT_SECRET);
-
-export const createAnonymousJwtToken = () =>
-  createJwtToken({
-    'https://hasura.io/jwt/claims': {
-      'x-hasura-allowed-roles': [anonymous],
-      'x-hasura-default-role': anonymous,
-    },
-    exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
-  });
 
 export const createuserJwtToken = (userId: string) =>
   createJwtToken({
