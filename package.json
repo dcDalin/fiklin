@@ -36,9 +36,7 @@
   },
   "homepage": "https://github.com/dcDalin/fiklin#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "concurrently": "^5.3.0",
-    "jsonwebtoken": "^8.5.1"
+    "concurrently": "^5.3.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
