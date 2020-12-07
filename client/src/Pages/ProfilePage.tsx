@@ -1,15 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+
+import MainLayout from '../Components/Layouts/MainLayout';
 
 const ProfilePage: React.FC = () => {
   return (
-    <>
-      <Helmet>
-        <title>Profile | Fiklin</title>
-        <meta name="description" content="Helmet application" />
-      </Helmet>
+    <MainLayout title="Profile | Fiklin" metaName="" metaContent="">
       <h2>profile</h2>
-    </>
+    </MainLayout>
   );
 };
 
