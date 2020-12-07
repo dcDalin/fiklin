@@ -1,1 +1,1 @@
-export const jwtTitle = "fiklinJwtToken";
+export const jwtTitle = 'fiklinJwtToken';
