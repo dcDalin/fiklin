@@ -1,5 +1,7 @@
 import React from 'react';
 
+import TopMenu from '../Navigation/TopMenu';
+
 interface Props {
   children: React.ReactNode;
 }
@@ -7,7 +9,7 @@ interface Props {
 const DesktopContainer: React.FC<Props> = ({ children }: Props) => {
   return (
     <>
-      <h2>Nav</h2>
+      <TopMenu size="massive" />
       {children}
       <h2>Footer</h2>
     </>

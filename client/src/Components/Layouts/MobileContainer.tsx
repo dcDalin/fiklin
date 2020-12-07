@@ -1,5 +1,7 @@
 import React from 'react';
 
+import TopMenu from '../Navigation/TopMenu';
+
 interface Props {
   children: React.ReactNode;
 }
@@ -7,7 +9,7 @@ interface Props {
 const MobileContainer: React.FC<Props> = ({ children }: Props) => {
   return (
     <>
-      <h2>Mobile header</h2>
+      <TopMenu size="mini" />
       {children}
       <h2>mobile footer</h2>
     </>

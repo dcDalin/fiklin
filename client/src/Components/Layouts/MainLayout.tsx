@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import DesktopContainer from './DesktopContainer';
 import MobileContainer from './MobileContainer';
+import { Container } from 'semantic-ui-react';
 
 interface Props {
   children: React.ReactNode;
@@ -20,7 +21,7 @@ const MainLayout: React.FC<Props> = ({ children, title, metaName, metaContent }:
     },
   });
   return (
-    <>
+    <Container>
       <Helmet>
         <title>{title}</title>
         <meta name={metaName} content={metaContent} />
@@ -33,7 +34,7 @@ const MainLayout: React.FC<Props> = ({ children, title, metaName, metaContent }:
           <MobileContainer>{children}</MobileContainer>
         </Media>
       </MediaContextProvider>
-    </>
+    </Container>
   );
 };
 
