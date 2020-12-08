@@ -11,6 +11,9 @@
     "heroku-postbuild": "npm run build:all",
     "poststart": "npm prune --production"
   },
+  "engines": {
+    "node": "12"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "tsc --noEmit && lint-staged"
