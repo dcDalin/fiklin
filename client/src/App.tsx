@@ -7,6 +7,9 @@ import FullPageLoader from './Components/Loaders/FullPageLoader';
 // context
 import AuthContext from './Context/AuthContext/AuthContext';
 
+// modals
+import AuthModals from './Components/Modals/AuthModals';
+
 // paths
 import { HOME, PROFILE, TICKET_RESALE } from './routes/paths';
 
@@ -16,7 +19,7 @@ import ProfilePage from './Pages/ProfilePage';
 import TicketResalePage from './Pages/TicketResalePage';
 
 const App: React.FC = () => {
-  const { loadUser, loading } = useContext(AuthContext);
+  const { loadUser, loading, isAuthenticated } = useContext(AuthContext);
 
   useEffect(() => {
     loadUser();
@@ -31,6 +34,7 @@ const App: React.FC = () => {
         <Route exact path={PROFILE} component={ProfilePage} />
         <Route exact path={TICKET_RESALE} component={TicketResalePage} />
       </Switch>
+      {!isAuthenticated && <AuthModals />}
     </Router>
   );
 };

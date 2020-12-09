@@ -8,6 +8,7 @@ const AuthContext = createContext({
   loading: true,
   user: null,
   error: null,
+  signUpWithGoogle: () => {},
   loadUser: () => {},
   logOut: () => {},
 });

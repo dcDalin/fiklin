@@ -5,7 +5,7 @@ import React, { useReducer } from 'react';
 import AuthReducer from './AuthReducer';
 import AuthContext from './AuthContext';
 import { AUTH_ERROR, USER_LOADED, USER_LOADING, USER_LOGGING_OUT, USER_LOGOUT } from './types';
-import firebase, { auth } from '../../firebase.config';
+import firebase, { auth, googleProvider } from '../../firebase.config';
 import { jwtTitle } from '../../constants';
 
 interface AuthStateProps {
@@ -44,6 +44,19 @@ const AuthState: React.FC = (props: AuthStateProps) => {
       dispatch({ type: USER_LOGOUT });
     } catch (err) {
       dispatch({ type: USER_LOGOUT, payload: err });
+    }
+  };
+
+  // Google auth
+  const signUpWithGoogle = async () => {
+    try {
+      await firebase.auth().signInWithPopup(googleProvider);
+      loadUser();
+    } catch (err) {
+      dispatch({
+        type: AUTH_ERROR,
+        payload: err,
+      });
     }
   };
 
@@ -102,6 +115,7 @@ const AuthState: React.FC = (props: AuthStateProps) => {
         loading: state.loading,
         user: state.user,
         error: state.error,
+        signUpWithGoogle,
         loadUser,
         logOut,
       }}

@@ -16,10 +16,8 @@ interface Props {
 const MainLayout: React.FC<Props> = ({ children, title, metaName, metaContent }: Props) => {
   const { MediaContextProvider, Media } = createMedia({
     breakpoints: {
-      sm: 0,
-      md: 768,
-      lg: 1024,
-      xl: 1192,
+      mobile: 0,
+      tablet: 768,
     },
   });
   return (
@@ -29,10 +27,10 @@ const MainLayout: React.FC<Props> = ({ children, title, metaName, metaContent }:
         <meta name={metaName} content={metaContent} />
       </Helmet>
       <MediaContextProvider>
-        <Media greaterThanOrEqual="md">
+        <Media at="tablet">
           <DesktopContainer>{children}</DesktopContainer>
         </Media>
-        <Media greaterThanOrEqual="sm">
+        <Media at="mobile">
           <MobileContainer>{children}</MobileContainer>
         </Media>
       </MediaContextProvider>
