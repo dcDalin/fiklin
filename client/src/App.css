@@ -1,0 +1,8 @@
+.container {
+    background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.tesla.com%2Fsites%2Fdefault%2Ffiles%2Fmodelsx-new%2Fsocial%2Fmodel-x-social.jpg&imgrefurl=https%3A%2F%2Fwww.tesla.com%2Fmodelx&tbnid=OhaFPvXZuSLy0M&vet=12ahUKEwj3yqHdwc3tAhWHBhoKHS8UCIkQMygBegUIARDSAQ..i&docid=nAmbVd5MEZDJgM&w=1200&h=627&q=tesla&ved=2ahUKEwj3yqHdwc3tAhWHBhoKHS8UCIkQMygBegUIARDSAQ');
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+}

@@ -12,6 +12,7 @@ const DesktopContainer: React.FC<Props> = ({ children }: Props) => {
       <TopMenu size="massive" />
       {children}
       <h2>Footer</h2>
+      <p>This </p>
     </>
   );
 };
