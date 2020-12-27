@@ -1,0 +1,32 @@
+.App {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.App-content {
+    height: 100%;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+@media (min-width: 650px) {
+    .App {
+        background-position: center center;
+    }
+    .App-content {
+        align-items: flex-end;
+        justify-content: center;
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 300%;
+    font-family: fantasy;
+    font-variant-caps: titling-caps;
+}

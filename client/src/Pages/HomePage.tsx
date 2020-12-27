@@ -1,16 +1,51 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import desktopImage from './images/bg.jpg';
+import mobileImage from './images/popcorn.jpg';
 import MainLayout from '../Components/Layouts/MainLayout';
 
 const HomePage: React.FC = () => {
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const imageUrl = useWindowWidth() >= 650 ? desktopImage : mobileImage;
+
+  // useEffect(() => {
+  //   const handleWindowResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
+
+  //   window.addEventListener('resize', handleWindowResize);
+
+  //   return () => {
+  //     window.removeEventListener('resize', handleWindowResize);
+  //   };
+  // }, []);
+
   return (
-    <div style={{ backgroundImage: `url("https://via.placeholder.com/500")` }}>
-      <MainLayout title="Find your next tour | Fiklin" metaName="" metaContent="">
-        <h2>home</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-      </MainLayout>
+    <div className="App" style={{ backgroundImage: `url(${imageUrl})` }}>
+      <div className="App-content">
+        <MainLayout title="Find your next tour | Fiklin" metaName="" metaContent="">
+          <h2>home</h2>
+          <h1>FIKLIN | YOUR ONLINE TICKET VENDOR 🎫 </h1>
+        </MainLayout>
+      </div>
     </div>
   );
+};
+
+const useWindowWidth = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
+
+  return windowWidth;
 };
 
 export default HomePage;
