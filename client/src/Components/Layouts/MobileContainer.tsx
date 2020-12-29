@@ -1,4 +1,5 @@
 import React from 'react';
+import './layout.css';
 
 import TopMenu from '../Navigation/TopMenu';
 
@@ -11,7 +12,11 @@ const MobileContainer: React.FC<Props> = ({ children }: Props) => {
     <>
       <TopMenu size="mini" />
       {children}
-      <h2>mobile footer</h2>
+      <div className="footer">
+        <p>
+          Copyright &copy; <script>document.write(new Date().getFullYear())</script> Fiklin Tickets All Rights Reserved
+        </p>
+      </div>
     </>
   );
 };
