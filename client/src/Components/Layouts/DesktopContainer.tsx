@@ -1,4 +1,5 @@
 import React from 'react';
+import './layout.css';
 
 import TopMenu from '../Navigation/TopMenu';
 
@@ -11,8 +12,11 @@ const DesktopContainer: React.FC<Props> = ({ children }: Props) => {
     <>
       <TopMenu size="massive" />
       {children}
-      <h2>Footer</h2>
-      <p>This </p>
+      <div className="footer">
+        <p>
+          Copyright &copy; <script>document.write(new Date().getFullYear())</script> Fiklin Tickets All Rights Reserved
+        </p>
+      </div>
     </>
   );
 };
