@@ -13,7 +13,6 @@ const HomePage: React.FC = () => {
     <div className="App" style={{ backgroundImage: `url(${imageUrl})` }}>
       <div className="App-content">
         <MainLayout title="Find your next tour | Fiklin" metaName="" metaContent="">
-          {/* <h2>home</h2> */}
           <h1>FIKLIN | YOUR ONLINE TICKET VENDOR </h1>
         </MainLayout>
       </div>

@@ -6,11 +6,14 @@ import { WebSocketLink } from '@apollo/link-ws';
 import { jwtTitle } from '../constants';
 
 const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
   const token = localStorage.getItem(jwtTitle);
+
+  // return the headers to the context so uploadLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `bearer ${token}` : null,
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
